@@ -1,7 +1,8 @@
 package com.testapp.com.testapp.controllers;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import org.springframework.web.bind.annotation.RequestBody;
+import com.testapp.com.testapp.controllers.com.testapp.services.TestAppService;
+import org.json.simple.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,6 +11,10 @@ import javax.websocket.server.PathParam;
 
 @RestController
 public class TestControllers {
+
+    @Autowired
+    TestAppService testAppService;
+
     @RequestMapping(value = "/print",method = RequestMethod.GET)
     public String print(@PathParam(value = "id") String id
                         ){
@@ -24,6 +29,20 @@ public class TestControllers {
 
 
     }
+
+    @RequestMapping(value = "/searchProduct",method = RequestMethod.GET)
+    public  JSONObject getRestApiResponse(@PathParam(value = "store") Integer store,
+                                          @PathParam(value = "upc") String upc){
+        return  testAppService.getRestApiResponse(store,upc);
+
+    }
+
+    @RequestMapping(value = "/search",method = RequestMethod.GET)
+    public JSONObject getRestResponseSSl(){
+        return testAppService.gatrestResponse();
+
+    }
+
 
 
 }

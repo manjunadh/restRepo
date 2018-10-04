@@ -1,0 +1,7 @@
+server:
+  port: 9999
+
+
+baseurl: http://fdss1ap01q.unix.ctcwest.ctc:8765/api/v1/inventory-search/byProduct?
+
+cboUrl: https://fpos-cbo.ctcwest.ctc:8443/api/v1/pos/external/search/result/1?storeCode=171&locale=en&upc=680680745400
